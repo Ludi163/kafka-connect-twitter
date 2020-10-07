@@ -3,3 +3,4 @@ TwitterSourceConnector.properties
 /target/
 .okhttpcache
 .idea/
+/out
