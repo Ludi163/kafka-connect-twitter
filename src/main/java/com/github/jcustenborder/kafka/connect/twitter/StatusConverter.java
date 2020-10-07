@@ -266,29 +266,6 @@ public class StatusConverter {
         return results;
     }
 
-    public static void convert(Place place, Struct struct) {
-        if (null == place) {
-            return;
-        }
-        struct.put("Name", place.getName())
-                .put("StreetAddress", place.getStreetAddress())
-                .put("CountryCode", place.getCountryCode())
-                .put("Id", place.getId())
-                .put("Country", place.getCountry())
-                .put("PlaceType", place.getPlaceType())
-                .put("URL", place.getURL())
-                .put("FullName", place.getFullName());
-    }
-
-    public static void convert(GeoLocation geoLocation, Struct struct) {
-        if (null == geoLocation) {
-            return;
-        }
-        struct.put("Latitude", geoLocation.getLatitude())
-                .put("Longitude", geoLocation.getLongitude());
-    }
-
-
     static Struct convertMediaEntityVariant(MediaEntity.Variant variant) {
         return new Struct(SCHEMA_MEDIA_ENTITY_VARIANT)
                 .put("Url", variant.getUrl())
@@ -360,7 +337,6 @@ public class StatusConverter {
         }
         return result;
     }
-
 
     static Struct convertHashtagEntity(HashtagEntity hashtagEntity) {
         return new Struct(SCHEMA_HASHTAG_ENTITY)
