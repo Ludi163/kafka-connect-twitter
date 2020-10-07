@@ -2,3 +2,5 @@ TwitterSourceConnector.properties
 *.iml
 /target/
 .okhttpcache
+.idea/
+/out
