@@ -153,8 +153,8 @@ public class StatusConverter {
                 .field("InReplyToUserId", SchemaBuilder.int64().doc("Returns the in_reply_user_id").optional().build())
                 .field("InReplyToScreenName", SchemaBuilder.string().doc("Returns the in_reply_to_screen_name").optional().build())
 
-                .field("GeoLocation_Latitude", SchemaBuilder.float64().doc("returns the latitude of the geo location").build())
-                .field("GeoLocation_Longitude", SchemaBuilder.float64().doc("returns the longitude of the geo location").build())
+                .field("GeoLocation_Latitude", SchemaBuilder.float64().optional().doc("returns the latitude of the geo location").build())
+                .field("GeoLocation_Longitude", SchemaBuilder.float64().optional().doc("returns the longitude of the geo location").build())
 
                 .field("Place_Name", SchemaBuilder.string().optional().build())
                 .field("Place_StreetAddress", SchemaBuilder.string().optional().build())
@@ -216,7 +216,7 @@ public class StatusConverter {
                 .field("User_Translator", SchemaBuilder.bool().optional().build())
                 .field("User_ListedCount", SchemaBuilder.int32().doc("Returns the number of public lists the user is listed on, or -1 if the count is unavailable.").optional().build())
                 .field("User_FollowRequestSent", SchemaBuilder.bool().doc("Returns true if the authenticating user has requested to follow this user, otherwise false.").optional().build())
-                .field("User_WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the user is withheld").build())
+                .field("User_WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the user is withheld").optional().build())
 
                 .field("Retweet", SchemaBuilder.bool().optional().build())
                 .field("Contributors", SchemaBuilder.array(Schema.INT64_SCHEMA).doc("Returns an array of contributors, or null if no contributor is associated with this status.").build())
@@ -490,6 +490,7 @@ public class StatusConverter {
                     .put("User_Location", user.getLocation())
                     .put("User_Description", user.getDescription())
                     .put("User_ContributorsEnabled", user.isContributorsEnabled())
+
                     .put("User_ProfileImageURL", user.getProfileImageURL())
                     .put("User_BiggerProfileImageURL", user.getBiggerProfileImageURL())
                     .put("User_MiniProfileImageURL", user.getMiniProfileImageURL())
@@ -499,6 +500,7 @@ public class StatusConverter {
                     .put("User_MiniProfileImageURLHttps", user.getMiniProfileImageURLHttps())
                     .put("User_OriginalProfileImageURLHttps", user.getOriginalProfileImageURLHttps())
                     .put("User_DefaultProfileImage", user.isDefaultProfileImage())
+
                     .put("User_URL", user.getURL())
                     .put("User_Protected", user.isProtected())
                     .put("User_FollowersCount", user.getFollowersCount())

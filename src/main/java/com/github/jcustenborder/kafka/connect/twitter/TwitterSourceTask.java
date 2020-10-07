@@ -80,6 +80,7 @@ public class TwitterSourceTask extends SourceTask implements StatusListener {
 
   @Override
   public List<SourceRecord> poll() throws InterruptedException {
+      log.debug("Polling...");
     return this.messageQueue.getBatch();
   }
 
@@ -97,18 +98,23 @@ public class TwitterSourceTask extends SourceTask implements StatusListener {
       Struct keyStruct = new Struct(StatusConverter.STATUS_SCHEMA_KEY);
       Struct valueStruct = new Struct(StatusConverter.STATUS_SCHEMA);
 
+      log.debug("Converting key for status with text: " + status.getText());
       StatusConverter.convertKey(status, keyStruct);
+      log.debug("Converting key was finished");
+
+      log.debug("Converting value for status with text: " + status.getText());
       StatusConverter.convert(status, valueStruct);
+      log.debug("Converting value was finished");
 
       Map<String, ?> sourcePartition = ImmutableMap.of();
       Map<String, ?> sourceOffset = ImmutableMap.of();
 
       SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, this.config.topic, StatusConverter.STATUS_SCHEMA_KEY, keyStruct, StatusConverter.STATUS_SCHEMA, valueStruct);
+      log.debug("Adding record to messageQueue: " + record.toString());
       this.messageQueue.add(record);
+      log.debug("Record added to messageQueue. Length of message queue: " + this.messageQueue.size() + ".");
     } catch (Exception ex) {
-      if (log.isErrorEnabled()) {
-        log.error("Exception thrown", ex);
-      }
+        log.error("Exception thrown: ", ex);
     }
   }
 
@@ -129,9 +135,7 @@ public class TwitterSourceTask extends SourceTask implements StatusListener {
       SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, this.config.topic, StatusConverter.SCHEMA_STATUS_DELETION_NOTICE_KEY, keyStruct, null, null);
       this.messageQueue.add(record);
     } catch (Exception ex) {
-      if (log.isErrorEnabled()) {
         log.error("Exception thrown", ex);
-      }
     }
   }
 
