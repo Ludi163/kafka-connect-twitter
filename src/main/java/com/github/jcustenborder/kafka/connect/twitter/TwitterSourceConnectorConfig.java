@@ -121,7 +121,7 @@ public class TwitterSourceConnectorConfig extends AbstractConfig {
             ConfigKeyBuilder.of(QUEUE_EMPTY_MS_CONF, Type.INT)
                 .importance(Importance.LOW)
                 .documentation(QUEUE_EMPTY_MS_DOC)
-                .defaultValue(1500)
+                .defaultValue(5000)
                 .validator(ConfigDef.Range.atLeast(10))
                 .build()
         )
