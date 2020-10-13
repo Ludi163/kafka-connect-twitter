@@ -71,7 +71,7 @@ public class StatusConverter {
             .field("VideoAspectRatioWidth", SchemaBuilder.int32().optional().doc("").build())
             .field("VideoAspectRatioHeight", SchemaBuilder.int32().optional().doc("").build())
             .field("VideoDurationMillis", SchemaBuilder.int64().optional().doc("").build())
-            .field("VideoVariants", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY_VARIANT).optional().doc("").build())
+//            .field("VideoVariants", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY_VARIANT).optional().doc("").build())
             .field("ExtAltText", SchemaBuilder.string().optional().doc("").build())
             .field("Id", SchemaBuilder.int64().optional().doc("Returns the id of the media.").build())
             .field("Type", SchemaBuilder.string().optional().doc("Returns the media type photo, video, animated_gif.").build())
@@ -103,7 +103,7 @@ public class StatusConverter {
             .field("VideoAspectRatioWidth", SchemaBuilder.int32().optional().doc("").build())
             .field("VideoAspectRatioHeight", SchemaBuilder.int32().optional().doc("").build())
             .field("VideoDurationMillis", SchemaBuilder.int64().optional().doc("").build())
-            .field("VideoVariants", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY_VARIANT).optional().doc("Returns size variations of the media.").build())
+//            .field("VideoVariants", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY_VARIANT).optional().doc("Returns size variations of the media.").build())
             .field("ExtAltText", SchemaBuilder.string().optional().doc("").build())
             .field("URL", SchemaBuilder.string().optional().doc("Returns the URL mentioned in the tweet.").build())
             .field("Text", SchemaBuilder.string().optional().doc("Returns the URL mentioned in the tweet.").build())
@@ -216,21 +216,21 @@ public class StatusConverter {
                 .field("User_Translator", SchemaBuilder.bool().optional().build())
                 .field("User_ListedCount", SchemaBuilder.int32().doc("Returns the number of public lists the user is listed on, or -1 if the count is unavailable.").optional().build())
                 .field("User_FollowRequestSent", SchemaBuilder.bool().doc("Returns true if the authenticating user has requested to follow this user, otherwise false.").optional().build())
-                .field("User_WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the user is withheld").optional().build())
+//                .field("User_WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the user is withheld").optional().build())
 
                 .field("Retweet", SchemaBuilder.bool().optional().build())
-                .field("Contributors", SchemaBuilder.array(Schema.INT64_SCHEMA).doc("Returns an array of contributors, or null if no contributor is associated with this status.").optional().build())
+//                .field("Contributors", SchemaBuilder.array(Schema.INT64_SCHEMA).doc("Returns an array of contributors, or null if no contributor is associated with this status.").optional().build())
                 .field("RetweetCount", SchemaBuilder.int32().doc("Returns the number of times this tweet has been retweeted, or -1 when the tweet was created before this feature was enabled.").optional().build())
                 .field("RetweetedByMe", SchemaBuilder.bool().optional().build())
                 .field("CurrentUserRetweetId", SchemaBuilder.int64().doc("Returns the authenticating user's retweet's id of this tweet, or -1L when the tweet was created before this feature was enabled.").optional().build())
                 .field("PossiblySensitive", SchemaBuilder.bool().optional().build())
                 .field("Lang", SchemaBuilder.string().doc("Returns the lang of the status text if available.").optional().build())
-                .field("WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the tweet is withheld").optional().build())
-                .field("HashtagEntities", SchemaBuilder.array(SCHEMA_HASHTAG_ENTITY).doc("Returns an array if hashtag mentioned in the tweet.").optional().build())
-                .field("UserMentionEntities", SchemaBuilder.array(SCHEMA_USER_MENTION_ENTITY).doc("Returns an array of user mentions in the tweet.").optional().build())
-                .field("MediaEntities", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY).doc("Returns an array of MediaEntities if medias are available in the tweet.").optional().build())
-                .field("SymbolEntities", SchemaBuilder.array(SCHEMA_SYMBOL_ENTITY).doc("Returns an array of SymbolEntities if medias are available in the tweet.").optional().build())
-                .field("URLEntities", SchemaBuilder.array(SCHEMA_URL_ENTITY).doc("Returns an array if URLEntity mentioned in the tweet.").optional().build())
+//                .field("WithheldInCountries", SchemaBuilder.array(Schema.STRING_SCHEMA).doc("Returns the list of country codes where the tweet is withheld").optional().build())
+//                .field("HashtagEntities", SchemaBuilder.array(SCHEMA_HASHTAG_ENTITY).doc("Returns an array if hashtag mentioned in the tweet.").optional().build())
+//                .field("UserMentionEntities", SchemaBuilder.array(SCHEMA_USER_MENTION_ENTITY).doc("Returns an array of user mentions in the tweet.").optional().build())
+//                .field("MediaEntities", SchemaBuilder.array(SCHEMA_MEDIA_ENTITY).doc("Returns an array of MediaEntities if medias are available in the tweet.").optional().build())
+//                .field("SymbolEntities", SchemaBuilder.array(SCHEMA_SYMBOL_ENTITY).doc("Returns an array of SymbolEntities if medias are available in the tweet.").optional().build())
+//                .field("URLEntities", SchemaBuilder.array(SCHEMA_URL_ENTITY).doc("Returns an array if URLEntity mentioned in the tweet.").optional().build())
 
                 .build();
     }
@@ -311,7 +311,7 @@ public class StatusConverter {
                 .put("VideoAspectRatioWidth", extendedMediaEntity.getVideoAspectRatioWidth())
                 .put("VideoAspectRatioHeight", extendedMediaEntity.getVideoAspectRatioHeight())
                 .put("VideoDurationMillis", extendedMediaEntity.getVideoDurationMillis())
-                .put("VideoVariants", extendedMediaEntity.getVideoVariants())
+//                .put("VideoVariants", extendedMediaEntity.getVideoVariants())
                 .put("ExtAltText", extendedMediaEntity.getExtAltText())
                 .put("Id", extendedMediaEntity.getId())
                 .put("Type", extendedMediaEntity.getType())
@@ -368,7 +368,7 @@ public class StatusConverter {
                 .put("VideoAspectRatioWidth", mediaEntity.getVideoAspectRatioWidth())
                 .put("VideoAspectRatioHeight", mediaEntity.getVideoAspectRatioHeight())
                 .put("VideoDurationMillis", mediaEntity.getVideoDurationMillis())
-                .put("VideoVariants", convert(mediaEntity.getVideoVariants()))
+//                .put("VideoVariants", convert(mediaEntity.getVideoVariants()))
                 .put("ExtAltText", mediaEntity.getExtAltText())
                 .put("URL", mediaEntity.getURL())
                 .put("Text", mediaEntity.getText())
@@ -534,13 +534,13 @@ public class StatusConverter {
                     .put("User_ListedCount", user.getListedCount())
                     .put("User_FollowRequestSent", user.isFollowRequestSent());
 
-            List<String> withheldInCountries = new ArrayList<>();
-            if (null != user.getWithheldInCountries()) {
-                for (String s : user.getWithheldInCountries()) {
-                    withheldInCountries.add(s);
-                }
-            }
-            struct.put("WithheldInCountries", withheldInCountries);
+//            List<String> withheldInCountries = new ArrayList<>();
+//            if (null != user.getWithheldInCountries()) {
+//                for (String s : user.getWithheldInCountries()) {
+//                    withheldInCountries.add(s);
+//                }
+//            }
+//            struct.put("WithheldInCountries", withheldInCountries);
         }
 
         Place place = status.getPlace();
@@ -561,28 +561,28 @@ public class StatusConverter {
                     .put("GeoLocation_Longitude", geoLocation.getLongitude());
         }
 
-        List<Long> contributers = new ArrayList<>();
+//        List<Long> contributers = new ArrayList<>();
+//
+//        if (null != status.getContributors()) {
+//            for (Long l : status.getContributors()) {
+//                contributers.add(l);
+//            }
+//        }
+//        struct.put("Contributors", contributers);
 
-        if (null != status.getContributors()) {
-            for (Long l : status.getContributors()) {
-                contributers.add(l);
-            }
-        }
-        struct.put("Contributors", contributers);
+//        List<String> withheldInCountries = new ArrayList<>();
+//        if (null != status.getWithheldInCountries()) {
+//            for (String s : status.getWithheldInCountries()) {
+//                withheldInCountries.add(s);
+//            }
+//        }
+//        struct.put("WithheldInCountries", withheldInCountries);
 
-        List<String> withheldInCountries = new ArrayList<>();
-        if (null != status.getWithheldInCountries()) {
-            for (String s : status.getWithheldInCountries()) {
-                withheldInCountries.add(s);
-            }
-        }
-        struct.put("WithheldInCountries", withheldInCountries);
-
-        struct.put("HashtagEntities", convert(status.getHashtagEntities()));
-        struct.put("UserMentionEntities", convert(status.getUserMentionEntities()));
-        struct.put("MediaEntities", convert(status.getMediaEntities()));
-        struct.put("SymbolEntities", convert(status.getSymbolEntities()));
-        struct.put("URLEntities", convert(status.getURLEntities()));
+//        struct.put("HashtagEntities", convert(status.getHashtagEntities()));
+//        struct.put("UserMentionEntities", convert(status.getUserMentionEntities()));
+//        struct.put("MediaEntities", convert(status.getMediaEntities()));
+//        struct.put("SymbolEntities", convert(status.getSymbolEntities()));
+//        struct.put("URLEntities", convert(status.getURLEntities()));
     }
 
     public static void convert(StatusDeletionNotice statusDeletionNotice, Struct struct) {
