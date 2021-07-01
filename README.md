@@ -1,3 +1,5 @@
+# IMPORTANT - DOC IS NOT UPDATED. RESPONSE WHICH IS SENT TO APACHE KAFKA HAS ANOTHER SHAPE.
+
 # Introduction
 
 This connector uses the twitter streaming api to listen for status update messages and 
